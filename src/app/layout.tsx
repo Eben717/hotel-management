@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
 import "./globals.css";
 import {Poppins} from 'next/font/google';
+import Header from "@/components/Header/Header";
+import Footer from "@/components/Footer/Footer";
 
 const poppins = Poppins({
   subsets: ['latin'], 
@@ -24,9 +25,9 @@ export default function RootLayout({
       <title>Hotel Management App</title>
       <body className={poppins.className}>
         <main className="font-normal">
-          {/* ?Header */}
+          <Header/>
           {children}
-          {/* ?Footer */}
+          <Footer/>
         </main>
       </body>
     </html>

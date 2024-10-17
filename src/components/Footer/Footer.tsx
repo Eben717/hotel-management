@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { BsFillSendFill, BsTelephoneOutbound } from 'react-icons/bs';
+import { BiMessageDetail } from 'react-icons/bi'; 
 
 const Footer = () => {
   return (
@@ -16,9 +17,31 @@ const Footer = () => {
             <div className="flex-1">
                 <p>123 Road</p>
                 <div className="flex items-center py-4">
-                    <BsFillSendFill/>
+                    <BsFillSendFill />
                     <p className="ml-2">codewithari</p>
                 </div>
+                <div className="flex items-center py-4">
+                    <BsTelephoneOutbound />
+                    <p className="ml-2">000-000-000</p>
+                </div>
+                <div className="flex items-center pt-4">
+                    <BiMessageDetail />
+                    <p className="ml-2">details</p>
+                </div>
+            </div>
+            <div className="flex-1 md:text-right">
+              <p className="pb-4">Our Story</p>
+              <p className="pb-4">Get in Touch</p>
+              <p className="pb-4">Our Privacy Committment</p>
+              <p className="pb-4">Terms of Service</p>
+              <p>Customer Assistance</p>
+            </div>
+            <div className="flex-1 md:text-right">
+              <p className="pb-4">Dining Experience</p>
+              <p className="pb-4">Wellness</p>
+              <p className="pb-4">Fitness</p>
+              <p className="pb-4">Sports</p>
+              <p className="pb-4">Events</p>
             </div>
         </div>
             
