@@ -1,20 +1,31 @@
-import type { Config } from "tailwindcss";
+import type { Config } from 'tailwindcss';
+const { fontFamily } = require('tailwindcss/defaultTheme');
 
 const config: Config = {
-  darkMode: "class",
+  darkMode: 'class',
   content: [
-    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        primary: '#038C7F',
+        secondary: '#F2C641',
+        tertiary: {
+          dark: '#F27405',
+          light: '#F2C641',
+        },
+        gold: '#FFD700',         // Add the gold color
+        darkGold: '#FFC300',     // Add the dark-gold color
+      },
+      fontFamily: {
+        poppins: ['var(--font-poppins)', ...fontFamily.sans],
       },
     },
   },
   plugins: [],
 };
+
 export default config;
