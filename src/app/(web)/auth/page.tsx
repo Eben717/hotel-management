@@ -1,9 +1,13 @@
 'use client'
 
-import React, { ChangeEvent, FormEvent, useState } from 'react'
+import { ChangeEvent, FormEvent, useState } from 'react'
 import { AiFillGithub } from 'react-icons/ai'
 import { FaSquareFacebook } from 'react-icons/fa6'
 import { FcGoogle } from 'react-icons/fc'
+import { signUp } from "next-auth-sanity/client"
+import { signIn, useSession } from "next-auth/react"
+import toast from 'react-hot-toast'
+
 
 const defaultFormData = {
     email: '',
@@ -21,17 +25,22 @@ const Auth = () => {
 
     const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
+        
         try {
-            console.log(formData)
+            const user = await signUp(formData)
+            if(user) {
+                toast.success("Sucess. Please sign in")
+            }
         } catch (error) {
-            console.log(error)            
+            console.log(error)  
+            toast.error("Something went wrong")          
         } finally {
             setFormData(defaultFormData)
         }
-    }
+    };
 
     const inputStyles = 
-    "border border-gray-300 sm:text-sm text-black rounded:lg  w-full p-2.5 focus:outline-none";
+    "border border-gray-300 sm:text-sm text-black rounded-lg  w-full p-2.5 focus:outline-none";
 
   return (
     <section className='container mx-auto'>
