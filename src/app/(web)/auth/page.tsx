@@ -1,12 +1,12 @@
 'use client'
 
-import { ChangeEvent, FormEvent, useState } from 'react'
-import { AiFillGithub } from 'react-icons/ai'
-import { FaSquareFacebook } from 'react-icons/fa6'
-import { FcGoogle } from 'react-icons/fc'
-import { signUp } from "next-auth-sanity/client"
-import { signIn, useSession } from "next-auth/react"
-import toast from 'react-hot-toast'
+import { ChangeEvent, FormEvent, useState } from 'react';
+import { AiFillGithub } from 'react-icons/ai';
+import { FaSquareFacebook } from 'react-icons/fa6';
+import { FcGoogle } from 'react-icons/fc';
+import { signUp } from "next-auth-sanity/client";
+import { signIn, useSession } from "next-auth/react";
+import toast from 'react-hot-toast';
 
 
 const defaultFormData = {
@@ -19,7 +19,7 @@ const Auth = () => {
     const [formData, setFormData] = useState(defaultFormData);
 
     const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
-        const {name, value} = event.target
+        const {name, value} = event.target;
         setFormData({...formData, [name]: value});
     }
 
@@ -27,12 +27,12 @@ const Auth = () => {
         event.preventDefault();
         
         try {
-            const user = await signUp(formData)
-            if(user) {
+            const user = await signUp(defaultFormData);
+            if (user) {
                 toast.success("Sucess. Please sign in")
             }
         } catch (error) {
-            console.log(error)  
+            console.log(error);  
             toast.error("Something went wrong")          
         } finally {
             setFormData(defaultFormData)
